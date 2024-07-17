@@ -1,0 +1,487 @@
+{
+	"info": {
+		"_postman_id": "e7b574c5-b7a9-42b7-a7cc-75d459dffda6",
+		"name": "HibrLink",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "33652343"
+	},
+	"item": [
+		{
+			"name": "Billing",
+			"item": [
+				{
+					"name": "create billing",
+					"request": {
+						"auth": {
+							"type": "inherit",
+							"inherit": {}
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"recipient_name\": \"John Doe\",\n    \"street_address\": \"123 Main St\",\n    \"apartment_floor\": \"Apt 4B\",\n    \"town_city\": \"Addis Ababa\",\n    \"phone_number\": \"+251911123456\",\n    \"payment_method\": \"cash on delivery\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{base_url}}/api/billing/"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"auth": {
+							"type": "inherit",
+							"inherit": {}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"johndoe@example.com\",\n  \"password\": \"password123\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{base_url}}/api/auth/login"
+					},
+					"response": []
+				},
+				{
+					"name": "sign up",
+					"request": {
+						"auth": {
+							"type": "inherit",
+							"inherit": {}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"John Doe\",\n  \"email\": \"johndoe@example.com\",\n  \"password\": \"password123\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{base_url}}/api/auth/register"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Profile",
+			"item": [
+				{
+					"name": "profiles",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlhdCI6MTcyMTE0Mjg5MSwiZXhwIjoxNzIxMTQ2NDkxfQ.ebmbMRb98Q2Qs5J3AMKiEo6hZegAFbbEcOUo9eTLaWg"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"userId\": \"2\",\n    \"gender\": \"male\",\n    \"country\": \"Ethiopia\",\n    \"phone_number\": \"+123453433\",\n    \"language\": \"Amharic\",\n    \"additional_email\": \"example@example.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{base_url}}/api/profiles"
+					},
+					"response": []
+				},
+				{
+					"name": "get profile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlhdCI6MTcyMTE0Mjg5MSwiZXhwIjoxNzIxMTQ2NDkxfQ.ebmbMRb98Q2Qs5J3AMKiEo6hZegAFbbEcOUo9eTLaWg"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{base_url}}/api/profiles"
+					},
+					"response": []
+				},
+				{
+					"name": "update profile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlhdCI6MTcyMTE0Mjg5MSwiZXhwIjoxNzIxMTQ2NDkxfQ.ebmbMRb98Q2Qs5J3AMKiEo6hZegAFbbEcOUo9eTLaWg"
+							}
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"gender\": \"male\",\n    \"country\": \"America\",\n    \"phone_number\": \"+123453433\",\n    \"language\": \"Amharic\",\n    \"additional_email\": \"example@example.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{base_url}}/api/profiles"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Product",
+			"item": [
+				{
+					"name": "add product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTcyMTE1MzYyOSwiZXhwIjoxNzIxMTU3MjI5fQ.1sYsVv9zK7Ye2k42T2xRsGARNV9wl_IZW2u_GMP6Td4"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"user_id\": 1,\n    \"category\": \"electronics\",\n    \"name\": \"Computer\",\n    \"price\": 599.99,\n    \"description\": \"High-end smartphone with advanced features.\",\n    \"image\": \"https://example.com/image.jpg\",\n    \"address\": \"123 Main Street, Cityville\",\n    \"contact_number\": \"+1234567890\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{base_url}}/api/products"
+					},
+					"response": []
+				},
+				{
+					"name": "get product by id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTcyMTE1MzYyOSwiZXhwIjoxNzIxMTU3MjI5fQ.1sYsVv9zK7Ye2k42T2xRsGARNV9wl_IZW2u_GMP6Td4"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/products/:id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"products",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "2",
+									"type": "string"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTcyMTE1MzYyOSwiZXhwIjoxNzIxMTU3MjI5fQ.1sYsVv9zK7Ye2k42T2xRsGARNV9wl_IZW2u_GMP6Td4"
+							}
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"user_id\": 1,\n    \"category\": \"electronics\",\n    \"name\": \"Computer\",\n    \"price\": 599.99,\n    \"description\": \"High-end smartphone with advanced features.\",\n    \"image\": \"https://example.com/image.jpg\",\n    \"address\": \"123 Main Street, Cityville\",\n    \"contact_number\": \"+1234567890\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/products/:id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"products",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "2",
+									"type": "string"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete product",
+					"request": {
+						"auth": {
+							"type": "inherit",
+							"inherit": {}
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/products/:id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"products",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1",
+									"type": "string"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "filter product by category",
+					"request": {
+						"auth": {
+							"type": "inherit",
+							"inherit": {}
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/products?categories=electronics,industry",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"products"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "categories",
+									"value": "electronics,industry"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Cart",
+			"item": [
+				{
+					"name": "create cart",
+					"request": {
+						"auth": {
+							"type": "inherit",
+							"inherit": {}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"userId\" : 1,\n    \"productId\" : 2,\n    \"quantity\" : 3\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{base_url}}/api/products/cart"
+					},
+					"response": []
+				},
+				{
+					"name": "Get cart by UserID",
+					"request": {
+						"auth": {
+							"type": "inherit",
+							"inherit": {}
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/products/cart/:userId",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"products",
+								"cart",
+								":userId"
+							],
+							"variable": [
+								{
+									"key": "userId",
+									"value": "2",
+									"type": "string"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update cart item ",
+					"request": {
+						"auth": {
+							"type": "inherit",
+							"inherit": {}
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"userId\" : 1,\n    \"productId\" : 2,\n    \"quantity\" : 7\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/products/cart/:Id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"products",
+								"cart",
+								":Id"
+							],
+							"variable": [
+								{
+									"key": "Id",
+									"value": "5",
+									"type": "string"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete cart",
+					"request": {
+						"auth": {
+							"type": "inherit",
+							"inherit": {}
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/products/cart/:Id",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"products",
+								"cart",
+								":Id"
+							],
+							"variable": [
+								{
+									"key": "Id",
+									"value": "5",
+									"type": "string"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get cart summary",
+					"request": {
+						"auth": {
+							"type": "inherit",
+							"inherit": {}
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/products/cart/summary/:userId",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"products",
+								"cart",
+								"summary",
+								":userId"
+							],
+							"variable": [
+								{
+									"key": "userId",
+									"value": "1",
+									"type": "string"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
